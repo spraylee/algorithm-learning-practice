@@ -9,6 +9,11 @@ const map = {
   15: 'F',
 }
 
+/**
+ * 转换数字的进制
+ * @param num 待转换的数字
+ * @param base 基数（默认为2，最大为16）
+ */
 export function covertNumberBase(num: number, base: number = 2): string {
   if (base > 16) throw Error('not support a base number max than 16')
   let temp = num

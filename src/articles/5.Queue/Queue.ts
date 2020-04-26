@@ -1,3 +1,6 @@
+/**
+ * 队列
+ */
 export class Queue<T> {
   #items: {
     [key: number]: T
@@ -37,6 +40,9 @@ export class Queue<T> {
   }
 }
 
+/**
+ * 双向队列
+ */
 export class DeQue<T> {
   #items: {
     [key: number]: T

@@ -1,3 +1,7 @@
+/**
+ * 测试 delete 操作的性能
+ * @param times 次数
+ */
 export function testDeleteObjectProperty(times = 1000) {
   const a = {}
   for (let i = 0; i < times; i++) {
@@ -10,6 +14,10 @@ export function testDeleteObjectProperty(times = 1000) {
   console.log(`delete for ${times} times: ${new Date().getTime() - start}ms`)
 }
 
+/**
+ * 测试 Reflect.deleteProperty 操作的性能
+ * @param times 次数
+ */
 export function testDeleteObjectPropertyByReflect(times = 1000) {
   const a = {}
   for (let i = 0; i < times; i++) {
@@ -24,6 +32,10 @@ export function testDeleteObjectPropertyByReflect(times = 1000) {
   )
 }
 
+/**
+ * 测试用 undefined 代替删除属性操作的性能
+ * @param times 次数
+ */
 export function testDeleteObjectPropertyByUndefined(times = 1000) {
   const a = {}
   for (let i = 0; i < times; i++) {

@@ -1,3 +1,6 @@
+/**
+ * 栈（内部用私有属性（#count,#items）实现，不会暴露额外的属性）
+ */
 export class Stack<T> {
   #items: {
     [key: number]: T
@@ -36,6 +39,10 @@ export class Stack<T> {
 
 const weakMap_items = new WeakMap()
 const weakMap_count = new WeakMap()
+
+/**
+ * 栈（内部用weakMap实现，不会暴露额外的属性）
+ */
 export class StackByWeakMap<T> {
   constructor() {
     weakMap_items.set(this, {})
