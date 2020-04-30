@@ -5,3 +5,11 @@ export class Node<T = any> {
     this.value = value
   }
 }
+
+export class DoublyNode<T = any> extends Node {
+  prev: null | DoublyNode
+  next: null | DoublyNode
+  constructor(value: T) {
+    super(value)
+  }
+}

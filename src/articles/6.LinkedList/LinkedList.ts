@@ -1,22 +1,29 @@
 import { Node } from './Node'
 
+export interface LinkedListType<T = any, N = Node> {
+  getNodeAt: (index: number) => N | T
+  push: (item: T) => void
+  insert: (item: T, index: number) => boolean
+  indexOf: (item: T) => number
+  remove: (item: T) => boolean
+  removeAt: (index: number) => boolean
+  isEmpty: () => boolean
+  size: () => number
+  toString: () => string
+}
+
 /**
  * 链表
  */
-export class LinkedList<T> {
+export class LinkedList<T> implements LinkedListType<T> {
   count = 0
-  head: null | Node = null
+  head: null | Node<T> = null
   equalsFn: typeof defaultEquals
   constructor(equalsFn = defaultEquals) {
     this.equalsFn = equalsFn
   }
   push(item: T) {
-    if (this.isEmpty()) {
-      this.head = new Node(item)
-    } else {
-      this.getNodeAt(this.count - 1).next = new Node(item)
-    }
-    this.count++
+    this.insert(item, this.count)
   }
   insert(item: T, index: number): boolean {
     if (index < 0 || index > this.count) return false
